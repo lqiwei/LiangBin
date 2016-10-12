@@ -30,7 +30,7 @@ public class ShopCarListViewAdapter extends BaseAdapter {
     private boolean isSelect = false;
     private Map<Integer,Boolean> map = new HashMap<>();
     //总金额
-    private int price;
+    private float price;
 
     private List<ShopClassDetailData> list = new ArrayList<>();
     private Context context;
@@ -48,6 +48,13 @@ public class ShopCarListViewAdapter extends BaseAdapter {
         this.isSelectBoth = isSelectBoth;
         map.clear();
     }
+
+//    boolean flag = false;
+//    int index;
+//    public void setSelect(boolean isSelectBoth,int position){
+//        flag = isSelectBoth;
+//        index = position;
+//    }
 
     @Override
     public int getCount() {
@@ -105,18 +112,24 @@ public class ShopCarListViewAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 //每次点击保存状态
-                if (!isSelect){
+                if (!isSelect && map.get(position)==null){
                     isSelect = true;
                     map.put(position,true);
-                    viewHolder.selectImg.setImageResource(R.drawable.ic_cart_selected);
-//                    notifyDataSetChanged();
+                    notifyDataSetChanged();
                     price += Float.parseFloat(list.get(position).getPrice());
-                }else{
+                }else if (!isSelect && map.get(position)!=null){
+                    isSelect = true;
+                    map.put(position,true);
+                    notifyDataSetChanged();
+                    price -= Float.parseFloat(list.get(position).getPrice());
+                }else if (isSelect && map.get(position)==null){
                     isSelect = false;
                     map.put(position,false);
-                    viewHolder.selectImg.setImageResource(R.drawable.ic_cart_unselected);
-//                    notifyDataSetChanged();
-                    price -= Float.parseFloat(list.get(position).getPrice());
+                    notifyDataSetChanged();
+                }else if (isSelect && map.get(position)!=null){
+                    isSelect = false;
+                    map.put(position,false);
+                    notifyDataSetChanged();
                 }
                 Log.e("=====price====", "isBuy: "+price);
             }
@@ -133,6 +146,12 @@ public class ShopCarListViewAdapter extends BaseAdapter {
                 notifyDataSetChanged();
             }
         }
+//
+//        if (flag && index == position){
+//            viewHolder.selectImg.setImageResource(R.drawable.ic_cart_selected);
+//        }else{
+//            viewHolder.selectImg.setImageResource(R.drawable.ic_cart_unselected);
+//        }
     }
 
     class ViewHolder{

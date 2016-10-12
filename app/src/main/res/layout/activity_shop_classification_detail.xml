@@ -10,14 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#000000">
-        <ImageView
-            android:id="@+id/shop_fragment_detail_top_left_iv"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="20dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/actionbar_navigation_back"/>
+            android:layout_centerVertical="true">
+            <ImageView
+                android:id="@+id/shop_fragment_detail_top_left_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/actionbar_navigation_back"/>
+        </RelativeLayout>
         <TextView
             android:id="@+id/shop_fragment_detail_top_center_tv"
             android:layout_width="wrap_content"

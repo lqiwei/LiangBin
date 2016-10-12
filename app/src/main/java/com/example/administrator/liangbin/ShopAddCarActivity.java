@@ -60,8 +60,6 @@ public class ShopAddCarActivity extends AppCompatActivity {
         backImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShopAddCarActivity.this,ShopClassificationDetailActivity.class);
-                startActivity(intent);
                 finish();
             }
         });

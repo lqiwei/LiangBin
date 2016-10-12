@@ -71,20 +71,20 @@ public class ShopCarActivity extends AppCompatActivity {
                 }
             }
         });
-
+//
 //        //设置listView的item点击监听
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                if (isSelect){
-//                    isSelect = false;
-//                    adapter.setSelect(isSelect,position);
-//                    Log.e("========", "onItemClick: "+isSelect+position);
+//                if (isSelectBoth){
+//                    isSelectBoth = false;
+//                    adapter.setSelect(isSelectBoth,position);
+//                    Log.e("========", "onItemClick: "+isSelectBoth+position);
 //                    adapter.notifyDataSetChanged();
 //                }else{
-//                    isSelect = true;
-//                    adapter.setSelect(isSelect,position);
-//                    Log.e("========", "onItemClick: "+isSelect+position);
+//                    isSelectBoth = true;
+//                    adapter.setSelect(isSelectBoth,position);
+//                    Log.e("========", "onItemClick: "+isSelectBoth+position);
 //                    adapter.notifyDataSetChanged();
 //                }
 //                String s = mList.get(position).getPrice();

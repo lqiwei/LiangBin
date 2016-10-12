@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import com.example.administrator.liangbin.MainHomeActivity;
 import com.example.administrator.liangbin.R;
 import com.example.administrator.liangbin.RegisterActivity;
+import com.example.administrator.liangbin.SearchGoodsActivity;
 import com.example.administrator.liangbin.ShopCarActivity;
 import com.example.administrator.liangbin.adapter.ShopPagerAdapater;
 
@@ -40,6 +41,8 @@ public class ShopFragment extends Fragment {
     ViewPager viewPager;
     @BindView(R.id.shop_fragment_top_right_iv)
     ImageView imageView;
+    @BindView(R.id.shop_fragment_top_search_iv)
+    ImageView searchImg;
 
     /**
      * 监听是否进行了注册
@@ -64,6 +67,15 @@ public class ShopFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_shop,container,false);
         ButterKnife.bind(this,view);
         initData();
+        initView();
+
+        return view;
+    }
+
+    /**
+     * 初始化视图
+     */
+    private void initView(){
         //设置购物车图标点击监听
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,8 +90,14 @@ public class ShopFragment extends Fragment {
                 }
             }
         });
-
-        return view;
+        //点击进入搜索界面
+        searchImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SearchGoodsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /**

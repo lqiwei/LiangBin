@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.administrator.liangbin.adapter.ShopClassDetailAdapter;
@@ -27,7 +28,7 @@ import butterknife.ButterKnife;
 /**
  * shop分类详情Activity
  */
-public class ShopClassificationDetailActivity extends AppCompatActivity {
+public class ShopClassificationDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String SHOP_CLASS_URL_LEFT = "http://mobile.iliangcang.com/goods/goodsShare?app_key=Android&cat_code=0045&count=10&coverId=1&page=";
     private final String SHOP_CLASS_URL_RIGHT = "&sig=6D569443F5A6EB51036D09737946AC2A%7C002841520425331&v=1.0";
@@ -35,6 +36,9 @@ public class ShopClassificationDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.shop_fr_detail_grid_view)
     PullToRefreshGridView gridView;
+
+    @BindView(R.id.shop_fragment_detail_top_left_iv)
+    ImageView topLImg;
 
     private List<ShopClassDetailData> mList = new ArrayList<>();
     private ShopClassDetailAdapter adapter;
@@ -49,15 +53,12 @@ public class ShopClassificationDetailActivity extends AppCompatActivity {
     }
 
     private void initView(){
-//        adapter = new ShopClassDetailAdapter(this,mList);
-//        gridView.setAdapter(adapter);
         getIntentData();
         if (IsNetWorkUtils.geCurrentNetWorkIsConnected(this)){
             loadData();
         }else{
             Toast.makeText(this,"请检查网络连接",Toast.LENGTH_SHORT).show();
         }
-
         //设置可上拉和下拉
         gridView.setMode(PullToRefreshBase.Mode.BOTH);
         //设置grid_view上拉下拉监听
@@ -74,14 +75,12 @@ public class ShopClassificationDetailActivity extends AppCompatActivity {
                     gridView.onRefreshComplete();
                 }
             }
-
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<GridView> refreshView) {
                 //刷新完成后退出刷新模式
                 gridView.onRefreshComplete();
             }
         });
-
         //设置grid_view的item点击监听
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -94,6 +93,8 @@ public class ShopClassificationDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //设置点击返回上层界面监听
+        topLImg.setOnClickListener(this);
     }
 
     private void getIntentData(){
@@ -113,7 +114,6 @@ public class ShopClassificationDetailActivity extends AppCompatActivity {
                 if (str != null){
                     mList = ParseShopClassDetail.getData(str);
                     if (mList != null) {
-//                        adapter.notifyDataSetChanged();
                         adapter = new ShopClassDetailAdapter(ShopClassificationDetailActivity.this,mList);
                         gridView.setAdapter(adapter);
                     }else{
@@ -124,5 +124,11 @@ public class ShopClassificationDetailActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        //返回上层界面
+        finish();
     }
 }

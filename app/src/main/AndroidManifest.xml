@@ -166,8 +166,10 @@
 
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ShopCarActivity" />
-        <activity android:name=".ShopClassificationDetailActivity" android:launchMode="singleTask" />
-        <activity android:name=".ShopAddCarActivity"/>
+        <activity
+            android:name=".ShopClassificationDetailActivity" />
+        <activity android:name=".ShopAddCarActivity" />
+        <activity android:name=".SearchGoodsActivity" />
     </application>
 
 </manifest>
