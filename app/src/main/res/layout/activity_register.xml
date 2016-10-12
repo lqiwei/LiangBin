@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login_register"
+    tools:context="com.example.administrator.liangbin.RegisterActivity">
+
+    <ImageView
+        android:id="@+id/register_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_pack_close"
+        android:layout_alignParentRight="true"
+        android:layout_margin="25dp"/>
+
+    <ImageView
+        android:id="@+id/register_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="135dp"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/icon_large"/>
+
+    <TextView
+        android:id="@+id/register_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="注册良仓"
+        android:textSize="15sp"
+        android:padding="15dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:layout_margin="15dp"
+        android:background="@drawable/register_shape"
+        android:layout_below="@id/register_icon"
+        android:drawableRight="@drawable/register_bonus"/>
+    <TextView
+        android:id="@+id/login_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:padding="15dp"
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#000000"
+        android:background="@drawable/register_shape"
+        android:layout_below="@id/register_tv"
+        android:textSize="15sp"/>
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/login_tv"
+        android:text="社交账号登录"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:layout_below="@id/tv"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>

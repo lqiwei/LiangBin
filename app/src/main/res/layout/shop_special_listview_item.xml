@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/shop_special_list_view_iv"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/shop_special_list_view_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="世界顶级小众香氛，你了解多少？"
+        android:textColor="#ffffff"/>
+</RelativeLayout>

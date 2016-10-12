@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/shop_fragment_top_rl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#000000">
+        <ImageView
+            android:id="@+id/shop_fragment_top_left_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/search_icon"/>
+        <TextView
+            android:id="@+id/shop_fragment_top_center_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#ffffff"
+            android:text="商店"/>
+        <ImageView
+            android:id="@+id/shop_fragment_top_right_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/actionbar_navigation_cart"/>
+    </RelativeLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/shop_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shop_fragment_top_rl"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/shop_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/shop_tab_layout"/>
+</RelativeLayout>

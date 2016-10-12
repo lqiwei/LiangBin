@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/magazine_fr_top_rl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#000000">
+        <TextView
+            android:id="@+id/magazine_fr_top_left_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:textColor="#ffffff"
+            android:text="time"/>
+        <TextView
+            android:id="@+id/magazine_fr_top_center_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#ffffff"
+            android:text="杂志"/>
+        <ImageView
+            android:id="@+id/magazine_fr_top_center_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/magazine_fr_top_center_tv"
+            android:layout_centerVertical="true"
+            android:paddingLeft="3dp"
+            android:src="@drawable/arrow_down"/>
+    </RelativeLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshExpandableListView
+        android:id="@+id/magazine_expand_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/magazine_fr_top_rl"/>
+</RelativeLayout>
